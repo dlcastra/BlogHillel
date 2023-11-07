@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ blog.title }}</h1>
+                <p class="text-right">{{ blog.updated_at }}</p>
+                <div>{{ blog.content|safe }}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
