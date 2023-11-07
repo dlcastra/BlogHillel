@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from bloghillel.models import Blog
 
-# Create your views here.
+
+def blog_view(request, id):
+    blog = get_object_or_404(Blog, id=id)
+    return render(request, "index.html", {"blog": blog})
