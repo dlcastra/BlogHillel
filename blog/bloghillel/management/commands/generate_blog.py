@@ -1,3 +1,5 @@
+import random
+
 from django.core.management.base import BaseCommand
 from faker import Faker
 from bloghillel.models import Blog
@@ -18,7 +20,7 @@ class Command(BaseCommand):
     @staticmethod
     def generate_content():
         text = ""
-        for _ in range(20):
+        for _ in range(random.randrange(15, 30)):
             text += fake.text() + " "
 
         return text
@@ -30,8 +32,8 @@ class Command(BaseCommand):
                 self.style.ERROR("The number to be generated must be greater than 0")
             )
         else:
-            blog_content = self.generate_content()
             for i in range(number):
+                blog_content = self.generate_content()
                 blog = Blog(
                     title=fake.sentence(),
                     content=blog_content,
