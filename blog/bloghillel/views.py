@@ -13,6 +13,7 @@ def blog_view(request, id):
     time.sleep(1)
     return render(request, "index.html", {"blog": blog})
 
+
 def edit_blog(request, id):
     blog = get_object_or_404(Blog, id=id)
     if request.method == "GET":
